@@ -1,0 +1,45 @@
+﻿@model MustangAlley.ViewModels.Contact.ContactUsViewModel
+@using PaulMiami.AspNetCore.Mvc.Recaptcha
+
+@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<h2 style="padding-top: 2%">@ViewData["Title"]</h2>
+
+<form asp-controller="Contact" asp-action="ContactUs" method="post" class="form-horizontal" role="form">
+    <hr />
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div id="person" class="jumbotron" style="height: auto; min-height: 450px; max-height: 450px; margin-top: -1%; display: flex">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="Name" class="col-md-3 control-label"></label>
+                    <input asp-for="Name" class="form-control" placeholder="Name" />
+                    <span asp-validation-for="Name" class="text-danger" style="padding-left: 140px"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EmailAddress" class="col-md-3 control-label"></label>
+                    <input asp-for="EmailAddress" class="form-control" placeholder="Email Address" />
+                    <span asp-validation-for="EmailAddress" class="text-danger" style="margin-bottom: -40px; padding-left: 140px"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Message" class="col-md-3 control-label"></label>
+                    @Html.TextArea("Message", null, new { @class = "form-control", style="resize: none; min-height: 210px" })
+                    <span asp-validation-for="Message" class="text-danger" style="padding-left: 140px"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-4">
+            <recaptcha multi-site="false" data-callback="recaptchaCallback"></recaptcha>
+        </div>
+
+        <div class="col-md-offset-4">
+            <button id="registerBtn" class="btn btn-primary btn-lg" disabled="disabled">Send Message</button>
+        </div>
+    </div>
+</form>
