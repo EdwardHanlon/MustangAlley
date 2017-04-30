@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MustangAlley.Repositories;
 using MustangAlley.ViewModels.Registration;
@@ -35,31 +36,55 @@ namespace MustangAlley.Services
             {
                 PreviousVolunteer = false,
                 RegisteringVehicle = false,
-                TimeSlots = new List<SelectListItem>
-                            {
-                                new SelectListItem { Text =  "6:00 AM - 10:00 AM" },
-                                new SelectListItem { Text =  "7:00 AM - 11:00 AM" },
-                                new SelectListItem { Text =  "8:00 AM - 12:00 PM" },
-                                new SelectListItem { Text =  "9:00 AM - 1:00 PM"  },
-                                new SelectListItem { Text =  "10:00 AM - 2:00 PM" },
-                                new SelectListItem { Text =  "11:00 AM - 3:00 PM" },
-                                new SelectListItem { Text =  "12:00 PM - 4:00 PM" },
-                                new SelectListItem { Text =  "1:00 PM - 5:00 PM"  }
-                            },
-                
-                ShirtSizes = new List<SelectListItem>
-                             {
-                                 new SelectListItem { Text =  "S" },
-                                 new SelectListItem { Text =  "M" },
-                                 new SelectListItem { Text =  "L" },
-                                 new SelectListItem { Text =  "XL" },
-                                 new SelectListItem { Text =  "2XL" },
-                                 new SelectListItem { Text =  "3XL" },
-                                 new SelectListItem { Text =  "4XL" }
-                             }
+                TimeSlots = BuildTimeslotList().ToList(),
+                ShirtSizes = BuildShirtsizeList().ToList()
             };
             
             return model;
+        }
+
+        private IEnumerable<string> GetTimeSlots()
+        {
+            //We have a variable size for the max # of volunteers at each time slot
+
+            //Get the list of registrations for each slot, if any are 25 or over we want to remove them from the list
+            var listOfFullSpots = repo.GetVolunteerRegistrationByTimeslot().Where(x => x.Value >= 25).Select(x => x.Key);
+
+            var timeSlots = new List<string>
+                            {
+                                "6:00 AM - 10:00 AM",
+                                "7:00 AM - 11:00 AM",
+                                "8:00 AM - 12:00 PM",
+                                "9:00 AM - 1:00 PM",
+                                "10:00 AM - 2:00 PM",
+                                "11:00 AM - 3:00 PM",
+                                "12:00 PM - 4:00 PM",
+                                "1:00 PM - 5:00 PM"
+                            };
+
+            return timeSlots.Where(x => !listOfFullSpots.Contains(x));
+        }
+
+        private IEnumerable<SelectListItem> BuildTimeslotList()
+        {
+            var openSlots = GetTimeSlots();
+
+            foreach (var slot in openSlots)
+                yield return new SelectListItem {Text = slot};
+        }
+
+        private IEnumerable<SelectListItem> BuildShirtsizeList()
+        {
+            return new List<SelectListItem>
+                   {
+                       new SelectListItem {Text = "S"},
+                       new SelectListItem {Text = "M"},
+                       new SelectListItem {Text = "L"},
+                       new SelectListItem {Text = "XL"},
+                       new SelectListItem {Text = "2XL"},
+                       new SelectListItem {Text = "3XL"},
+                       new SelectListItem {Text = "4XL"}
+                   };
         }
     }
 }

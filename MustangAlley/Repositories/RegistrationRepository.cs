@@ -39,5 +39,26 @@ namespace MustangAlley.Repositories
 
         //    return new CarRegistrationCountViewModel { RegistrationByYear = carDictionary};
         //}
+
+        public Dictionary<string, int> GetVolunteerRegistrationByTimeslot()
+        {
+            var result = new Dictionary<string, int>();
+            var volunteers = dbContext.RegistrationRecords;
+
+            foreach (var volunteer in volunteers.Where(x => !string.IsNullOrEmpty(x.PreferredTimeSlot) 
+                                                    && x.PreferredTimeSlot != "Please select a time slot"))
+            {
+                if (result.ContainsKey(volunteer.PreferredTimeSlot))
+                {
+                    result[volunteer.PreferredTimeSlot]++;
+                }
+                else
+                {
+                    result[volunteer.PreferredTimeSlot] = 1;
+                }
+            }
+
+            return result;
+        }
     }
 }
