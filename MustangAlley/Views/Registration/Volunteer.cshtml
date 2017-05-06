@@ -60,6 +60,13 @@
                 <label asp-for="PreviousPosition" class="col-md-2 control-label"></label>
                 <input asp-for="PreviousPosition" class="form-control"/>
             </div>
+            
+            <div class="form-group">
+                <label asp-for="PreferredTimeSlot" class="col-md-2 control-label"></label>
+                <select asp-for="PreferredTimeSlot" asp-items="@Model.TimeSlots" style="width: 280px; height: 30px;">
+                    <option>Please select a time slot</option>
+                </select>
+            </div>
 
             <div class="form-group">
                 <label asp-for="ShirtSize" class="col-md-2 control-label"></label>
