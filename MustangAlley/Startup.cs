@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using MustangAlley.Models;
 using MustangAlley.Repositories;
 using MustangAlley.Services;
+using MustangAlley.Services.Interfaces;
 using PaulMiami.AspNetCore.Mvc.Recaptcha;
 
 namespace MustangAlley
@@ -53,6 +54,7 @@ namespace MustangAlley
             services.AddTransient<IEmailSender, MessageService>();
             services.AddTransient<IRegistrationRepository, RegistrationRepository>();
             services.AddTransient<IRegistrationService, RegistrationService>();
+            services.AddTransient<IDocumentService, DocumentService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
