@@ -32,11 +32,9 @@ namespace MustangAlley.Controllers
                 var pdfStreamData = stream.ToArray();
 
                 HttpContext.Response.ContentType = "application/pdf";
-                HttpContext.Response.Headers.Add("x-filename", "plaque.pdf");
+                //HttpContext.Response.Headers.Add("x-filename", @"plaque.pdf");
                 HttpContext.Response.Headers.Add("Access-Control-Expose-Headers", "x-filename");
                 HttpContext.Response.Body.Write(pdfStreamData, 0, pdfStreamData.Length);
-
-                pdf.Dispose();
                 
                 return new ContentResult();
             }
