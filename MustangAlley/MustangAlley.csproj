@@ -5,6 +5,11 @@
     <RuntimeIdentifier>win7-x86</RuntimeIdentifier>
     <UserSecretsId>875e8328-c280-43a9-a7b2-2430115bf4f6</UserSecretsId>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="wwwroot\fonts\janitor\Janitor.otf" />
+    <None Remove="wwwroot\fonts\janitor\Janitor.ttf" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.1.3" />
     <PackageReference Include="MailKit" Version="1.12.0" />
@@ -18,11 +23,73 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="1.1.0" />
     <PackageReference Include="PaulMiami.AspNetCore.Mvc.Recaptcha" Version="1.2.0" />
-    <PackageReference Include="PdfSharp" Version="1.32.3057" />
+    <PackageReference Include="PDFsharp-wpf" Version="1.50.4589-beta4" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
     <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="wwwroot\fonts\janitor\Janitor.otf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wwwroot\fonts\janitor\Janitor.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="wwwroot\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\fonts\janitor\Readme.txt" />
+    <None Include="wwwroot\fonts\ubuntufontfamily0.80\CONTRIBUTING.txt" />
+    <None Include="wwwroot\fonts\ubuntufontfamily0.80\copyright.txt" />
+    <None Include="wwwroot\fonts\ubuntufontfamily0.80\FONTLOG.txt" />
+    <None Include="wwwroot\fonts\ubuntufontfamily0.80\LICENCE-FAQ.txt" />
+    <None Include="wwwroot\fonts\ubuntufontfamily0.80\LICENCE.txt" />
+    <None Include="wwwroot\fonts\ubuntufontfamily0.80\README.txt" />
+    <None Include="wwwroot\fonts\ubuntufontfamily0.80\TRADEMARKS.txt" />
+    <EmbeddedResource Include="wwwroot\fonts\ubuntufontfamily0.80\Ubuntu-B.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wwwroot\fonts\ubuntufontfamily0.80\Ubuntu-BI.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wwwroot\fonts\ubuntufontfamily0.80\Ubuntu-C.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wwwroot\fonts\ubuntufontfamily0.80\Ubuntu-L.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wwwroot\fonts\ubuntufontfamily0.80\Ubuntu-LI.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wwwroot\fonts\ubuntufontfamily0.80\Ubuntu-M.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wwwroot\fonts\ubuntufontfamily0.80\Ubuntu-MI.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wwwroot\fonts\ubuntufontfamily0.80\Ubuntu-R.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wwwroot\fonts\ubuntufontfamily0.80\Ubuntu-RI.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wwwroot\fonts\ubuntufontfamily0.80\UbuntuMono-B.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wwwroot\fonts\ubuntufontfamily0.80\UbuntuMono-BI.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wwwroot\fonts\ubuntufontfamily0.80\UbuntuMono-R.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="wwwroot\fonts\ubuntufontfamily0.80\UbuntuMono-RI.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Configuration" />

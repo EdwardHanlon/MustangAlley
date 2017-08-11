@@ -1,8 +1,9 @@
-﻿using Microsoft.Extensions.DependencyModel.Resolution;
+﻿using System.Drawing;
 using MustangAlley.Services.Interfaces;
 using MustangAlley.ViewModels.DashPlaque;
 using PdfSharp;
 using PdfSharp.Drawing;
+using PdfSharp.Fonts;
 using PdfSharp.Pdf;
 
 namespace MustangAlley.Services
@@ -21,13 +22,19 @@ namespace MustangAlley.Services
             // Get an XGraphics object for drawing
             XGraphics gfx = XGraphics.FromPdfPage(page);
             AddImage(gfx, @".\wwwroot\images\FPER_17_DreamCruise_4C_R01.png");
-            
-            // Draw the text
-            XFont labelFont = new XFont("Verdana", 30, XFontStyle.Bold);
+
+            // Get the FontResolver and load fonts.
+            var fontResolver = FontResolver.Get;
+
+            // Assign it to PDFsharp.
+            GlobalFontSettings.FontResolver = fontResolver;
+
+            fontResolver.AddFont("Ubuntu", XFontStyle.Regular, @".\wwwroot\fonts\ubuntufontfamily0.80\Ubuntu-C.ttf", true, true);
+            XFont labelFont = new XFont("Ubuntu", 40, XFontStyle.BoldItalic);
 
             //X offset, Y offset, image width, image height
             gfx.DrawString(viewModel.Year.ToString() ?? "", labelFont, XBrushes.Black, new XRect(100, (page.Height / 2) + 50, page.Width, page.Height), XStringFormat.TopLeft);
-            gfx.DrawString(viewModel.BodyStyle ?? "", labelFont, XBrushes.Black, new XRect((page.Width - 300), (page.Height / 2) + 50, page.Width, page.Height), XStringFormat.TopLeft);
+            gfx.DrawString(viewModel.BodyStyle ?? "", labelFont, XBrushes.Black, new XRect((page.Width - (375 - viewModel.BodyStyle.Length)), (page.Height / 2) + 50, page.Width, page.Height), XStringFormat.TopLeft);
             gfx.DrawString(viewModel.Owner ?? "", labelFont, XBrushes.Black, new XRect(0, 0, page.Width, page.Height - 40), XStringFormat.BottomCenter);
             
             return document;
@@ -38,7 +45,7 @@ namespace MustangAlley.Services
         {
             //Add the image into the PDF
             var image = XImage.FromFile(imagePath);
-            gfx.DrawImage(image, 225, 20, 350, 250);
+            gfx.DrawImage(image, 225, 35, 350, 250);
 
             image.Dispose();
         }
