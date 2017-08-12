@@ -22,21 +22,18 @@ namespace MustangAlley.Controllers
             return View();
         }
 
-        public IActionResult Generate(DashPlaqueViewModel model)
+        public MemoryStream Generate(DashPlaqueViewModel model)
         {
             using (var stream = new MemoryStream())
             {
                 var pdf = documentService.GenerateDocument(model);
+
                 pdf.Save(stream);
-
                 var pdfStreamData = stream.ToArray();
+                stream.Close();
+                stream.Dispose();
 
-                HttpContext.Response.ContentType = "application/pdf";
-                //HttpContext.Response.Headers.Add("x-filename", @"plaque.pdf");
-                HttpContext.Response.Headers.Add("Access-Control-Expose-Headers", "x-filename");
-                HttpContext.Response.Body.Write(pdfStreamData, 0, pdfStreamData.Length);
-                
-                return new ContentResult();
+                return new MemoryStream(pdfStreamData, 0, pdfStreamData.Length);
             }
         }
     }
