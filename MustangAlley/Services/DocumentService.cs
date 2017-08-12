@@ -34,7 +34,7 @@ namespace MustangAlley.Services
 
             //X offset, Y offset, image width, image height
             gfx.DrawString(viewModel.Year.ToString() ?? "", labelFont, XBrushes.Black, new XRect(100, (page.Height / 2) + 50, page.Width, page.Height), XStringFormat.TopLeft);
-            gfx.DrawString(viewModel.BodyStyle ?? "", labelFont, XBrushes.Black, new XRect((page.Width - (400 - viewModel.BodyStyle.Length)), (page.Height / 2) + 50, page.Width, page.Height), XStringFormat.TopLeft);
+            gfx.DrawString(viewModel.BodyStyle ?? "", labelFont, XBrushes.Black, new XRect((page.Width - (280 + (viewModel.BodyStyle.Length * 2))), (page.Height / 2) + 50, page.Width, page.Height), XStringFormat.TopLeft);
             gfx.DrawString(viewModel.Owner ?? "", labelFont, XBrushes.Black, new XRect(0, 0, page.Width, page.Height - 40), XStringFormat.BottomCenter);
             
             return document;
