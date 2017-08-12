@@ -34,7 +34,7 @@ namespace MustangAlley.Services
 
             //X offset, Y offset, image width, image height
             gfx.DrawString(viewModel.Year.ToString() ?? "", labelFont, XBrushes.Black, new XRect(100, (page.Height / 2) + 50, page.Width, page.Height), XStringFormat.TopLeft);
-            gfx.DrawString(viewModel.BodyStyle ?? "", labelFont, XBrushes.Black, new XRect((page.Width - (375 - viewModel.BodyStyle.Length)), (page.Height / 2) + 50, page.Width, page.Height), XStringFormat.TopLeft);
+            gfx.DrawString(viewModel.BodyStyle ?? "", labelFont, XBrushes.Black, new XRect((page.Width - (400 - viewModel.BodyStyle.Length)), (page.Height / 2) + 50, page.Width, page.Height), XStringFormat.TopLeft);
             gfx.DrawString(viewModel.Owner ?? "", labelFont, XBrushes.Black, new XRect(0, 0, page.Width, page.Height - 40), XStringFormat.BottomCenter);
             
             return document;
@@ -45,7 +45,7 @@ namespace MustangAlley.Services
         {
             //Add the image into the PDF
             var image = XImage.FromFile(imagePath);
-            gfx.DrawImage(image, 225, 35, 350, 250);
+            gfx.DrawImage(image, 225, 35, 300, 250);
 
             image.Dispose();
         }
