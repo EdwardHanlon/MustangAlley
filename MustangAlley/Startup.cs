@@ -37,7 +37,7 @@ namespace MustangAlley
             string connection =
                 $@"Server=tcp:mustangalley.database.windows.net,1433;Database=MustangAlley;User ID={dbUserName};Password={dbPassword};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             
-            services.AddEntityFramework().AddEntityFrameworkSqlServer().AddDbContext<RegistrationContext>(options => options.UseSqlServer(connection));
+            services.AddEntityFrameworkSqlServer().AddDbContext<RegistrationContext>(options => options.UseSqlServer(connection));
 
             services.AddMvc();
             
