@@ -33,9 +33,9 @@ namespace MustangAlley.Services
             XFont labelFont = new XFont("Ubuntu", 40, XFontStyle.BoldItalic);
 
             //X offset, Y offset, image width, image height
-            gfx.DrawString(viewModel.Year.ToString() ?? "", labelFont, XBrushes.Black, new XRect(100, (page.Height / 2) + 50, page.Width, page.Height), XStringFormat.TopLeft);
-            gfx.DrawString(viewModel.BodyStyle ?? "", labelFont, XBrushes.Black, new XRect((page.Width - (280 + (viewModel.BodyStyle.Length * 2))), (page.Height / 2) + 50, page.Width, page.Height), XStringFormat.TopLeft);
-            gfx.DrawString(viewModel.Owner ?? "", labelFont, XBrushes.Black, new XRect(0, 0, page.Width, page.Height - 40), XStringFormat.BottomCenter);
+            gfx.DrawString(viewModel.Year.ToString() ?? "Year", labelFont, XBrushes.Black, new XRect(100, (page.Height / 2) + 50, page.Width, page.Height), XStringFormat.TopLeft);
+            gfx.DrawString(viewModel.BodyStyle ?? "Body Style", labelFont, XBrushes.Black, new XRect((page.Width - (280 + (viewModel.BodyStyle.Length * 2))), (page.Height / 2) + 50, page.Width, page.Height), XStringFormat.TopLeft);
+            gfx.DrawString(viewModel.Owner ?? "Owner", labelFont, XBrushes.Black, new XRect(0, 0, page.Width - 150, page.Height - 40), XStringFormat.BottomCenter);
             
             return document;
         }
