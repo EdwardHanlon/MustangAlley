@@ -1,5 +1,5 @@
 ﻿<ul class="nav navbar-nav navbar-right">
-    @if (DateTime.Now <= new DateTime(2018, 8, 13) && DateTime.Now > new DateTime(2018, 5, 8))
+    @if (DateTime.Now <= new DateTime(2018, 8, 13) && DateTime.Now >= new DateTime(2018, 5, 11))
     {
         <li><a asp-controller="Registration" asp-action="RegisterVehicle">Register Your Vehicle</a></li>
         <li><a asp-controller="Registration" asp-action="Volunteer">Volunteer</a></li>
