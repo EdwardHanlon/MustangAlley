@@ -1,22 +1,19 @@
 ﻿@model MustangAlley.ViewModels.Registration.RegistrationViewModel
-@using System.ComponentModel.DataAnnotations
-@using System.Net.Mail
-@using PaulMiami.AspNetCore.Mvc.Recaptcha
 
 @{
     ViewData["Title"] = "Sign up to be a Volunteer";
 }
 
-<div style="padding-top: 2%">
+@*<div style="padding-top: 2%">
     <div class="jumbotron" style="height: auto; min-height: 150px; max-height: 290px;">
-        <h2 style="padding-bottom: 5%">Thank you for wanting to make the 2017 Mustang Alley a great event!</h2>
+        <h2 style="padding-bottom: 5%">Thank you for wanting to make the 2018 Mustang Alley a great event!</h2>
 
         <h4>For scheduling purposes registration via the website has been stopped. If you want to volunteer please contact the Mustang Alley using the
             @Html.ActionLink("Contact Us", "ContactUs", "Contact") page.</h4>
     </div>
-</div>
+</div>*@
 
-@*<form asp-controller="Registration" asp-action="Volunteer" method="post" class="form-horizontal" role="form">
+<form asp-controller="Registration" asp-action="Volunteer" method="post" class="form-horizontal" role="form">
     <hr />
     <div asp-validation-summary="All" class="text-danger"></div>
 
@@ -135,7 +132,7 @@
             <button id="registerBtn" class="btn btn-primary btn-lg" disabled="disabled">Register</button>
         </div>
     </div>
-</form>*@
+</form>
 
 @section Scripts {
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
