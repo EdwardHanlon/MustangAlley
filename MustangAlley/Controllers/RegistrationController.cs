@@ -57,7 +57,7 @@ namespace MustangAlley.Controllers
 
             if (ModelState.IsValid)
             {
-                model.RegisteringVehicle = true;
+                model.Volunteering = true;
                 service.SaveVolunteerRegistration(model);
                 return RedirectToAction("Confirmation");
             }
