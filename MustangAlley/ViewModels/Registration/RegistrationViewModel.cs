@@ -58,6 +58,7 @@ namespace MustangAlley.ViewModels.Registration
         [Display(Name = "Previous Position")]
         public string PreviousPosition { get; set; }
 
+        [Required]
         [Display(Name = "Preferred Timeslot")]
         public string PreferredTimeSlot { get; set; }
 
@@ -67,6 +68,7 @@ namespace MustangAlley.ViewModels.Registration
         [Display(Name = "Second Preference")]
         public string SecondPreferredPosition { get; set; }
 
+        [Required]
         [Display(Name = "T-Shirt Size")]
         public string ShirtSize { get; set; }
 
@@ -74,7 +76,7 @@ namespace MustangAlley.ViewModels.Registration
 
         #region Vehicle Properties
 
-        //[RegularExpression(@"19(6[4-9]|[789]\d)|20(0\d|1[0123456789])", ErrorMessage = "Please enter a valid vehicle year between 1964 and 2019")]
+        [RegularExpression(@"19(6[4-9]|[789]\d)|20(0\d|1[0123456789])", ErrorMessage = "Please enter a valid vehicle year between 1964 and 2019")]
         [Display(Name = "Vehicle Year")]
         [DefaultValue(0)]
         public int Year { get; set; }
