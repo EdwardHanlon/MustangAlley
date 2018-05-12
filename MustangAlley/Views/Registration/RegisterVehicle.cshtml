@@ -79,46 +79,7 @@
                 <span asp-validation-for="LicensePlateNumber" class="text-danger"></span>
             </div>
         </div>
-
-        @*<div class="form-group">
-            <label asp-for="Volunteering" class="col-md-2 control-label"></label>
-            <div class="col-md-10" style="padding-top: 1%">
-                @Html.RadioButtonFor(m => m.Volunteering, false, new { @onclick = "hideVolunteerRegistration()" })<span>No</span>
-                @Html.RadioButtonFor(m => m.Volunteering, true, new { @onclick = "showVolunteerRegistration()" })<span>Yes</span>
-            </div>
-        </div>*@
     </div>
-
-    <div id="volunteer" style="display: none">
-        @*<div class="jumbotron">
-            <div class="form-group">
-                <label asp-for="PreviousVolunteer" class="col-md-2 control-label"></label>
-                <div class="col-md-10" style="padding-top: 1%">
-                    @Html.RadioButtonFor(m => m.PreviousVolunteer, false, new { @onclick = "hidePreviousPosition()" })<span>No</span>
-                    @Html.RadioButtonFor(m => m.PreviousVolunteer, true, new { @onclick = "showPreviousPosition()" })<span>Yes</span>
-                </div>
-            </div>
-            <div class="form-group" id="PreviousPosition" style="display: none">
-                <label asp-for="PreviousPosition" class="col-md-2 control-label"></label>
-                <input asp-for="PreviousPosition" class="form-control" />
-            </div>
-
-            <div class="form-group">
-                <label asp-for="PreferredTimeSlot" class="col-md-2 control-label"></label>
-                <select asp-for="PreferredTimeSlot" asp-items="@Model.TimeSlots" style="width: 280px; height: 30px;">
-                    <option>Please select a time slot</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="ShirtSize" class="col-md-2 control-label"></label>
-                <select asp-for="ShirtSize" asp-items="@Model.ShirtSizes" style="width: 280px; height: 30px;">
-                    <option>Please select your T-Shirt size</option>
-                </select>
-            </div>
-        </div>*@
-    </div>
-
     <div class="form-group">
         <div class="col-md-4">
             <recaptcha multi-site="false" data-callback="recaptchaCallback"></recaptcha>
