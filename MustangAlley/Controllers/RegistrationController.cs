@@ -33,6 +33,13 @@ namespace MustangAlley.Controllers
         [HttpPost, ValidateRecaptcha]
         public IActionResult RegisterVehicle(RegistrationViewModel model)
         {
+            // I'm a horrible person and I will fix this later
+            if (model.RegisteringVehicle == false)
+            {
+                ModelState.Root.GetModelStateForProperty("PreferredTimeSlot").ValidationState = ModelValidationState.Valid;
+                ModelState.Root.GetModelStateForProperty("ShirtSize").ValidationState = ModelValidationState.Valid;
+            }
+
             if (ModelState.IsValid)
             {
                 model.RegisteringVehicle = true;
