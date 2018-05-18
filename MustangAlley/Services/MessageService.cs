@@ -24,7 +24,7 @@ namespace MustangAlley.Services
 
             var sb = new StringBuilder();
 
-            sb.AppendLine("Congratulations – you are registered for the 19th annual Mustang Alley! To help keep the event fun and safe, we do have a few requirements. Please check the web-site for those requirements and other event details. We look forward to seeing you in Ferndale, and hope you enjoy the event!");
+            sb.AppendLine("Congratulations – you are registered for the 20th annual Mustang Alley! To help keep the event fun and safe, we do have a few requirements. Please check the web-site for those requirements and other event details. We look forward to seeing you in Ferndale, and hope you enjoy the event!");
             sb.AppendLine(Environment.NewLine);
             sb.AppendLine(Environment.NewLine);
             sb.AppendLine("The Mustang Alley Team");
