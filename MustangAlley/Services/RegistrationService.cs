@@ -27,7 +27,7 @@ namespace MustangAlley.Services
         {
             model.Volunteering = true;
             repo.SaveRegistration(model);
-            emailService.SendEmail(model.Email);
+            emailService.SendEmail(model.Email);            
         }
         
         public RegistrationViewModel GetRegistrationViewModel()
@@ -49,7 +49,7 @@ namespace MustangAlley.Services
 
             //Get the list of registrations for each slot, if any are 25 or over we want to remove them from the list
             var listOfFullSpots = repo.GetVolunteerRegistrationByTimeslot().Where(x => x.Value >= 25).Select(x => x.Key);
-
+            
             var timeSlots = new List<string>
                             {
                                 "6:00 AM - 10:00 AM",

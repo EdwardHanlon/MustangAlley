@@ -6,11 +6,12 @@ using MustangAlley.ViewModels.Registration;
 using PaulMiami.AspNetCore.Mvc.Recaptcha;
 
 namespace MustangAlley.Controllers
-{
+{   
     public class RegistrationController : Controller
     {
         private IRegistrationService service;
-        
+        private System.DateTime registrationCloseDate = new System.DateTime(2020, 8, 14);
+
         public RegistrationController(IRegistrationService service)
         {
             this.service = service;
@@ -18,11 +19,25 @@ namespace MustangAlley.Controllers
 
         public IActionResult RegisterVehicle()
         {
+            return RedirectToAction("Index", "Home");
+
+            if (System.DateTime.Now >= registrationCloseDate)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             return View(service.GetRegistrationViewModel());
         }
 
         public IActionResult Volunteer()
         {
+            return RedirectToAction("Index", "Home");
+
+            if (System.DateTime.Now >= registrationCloseDate)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             return View(service.GetRegistrationViewModel());
         }
 
@@ -33,6 +48,13 @@ namespace MustangAlley.Controllers
         [HttpPost, ValidateRecaptcha]
         public IActionResult RegisterVehicle(RegistrationViewModel model)
         {
+            return RedirectToAction("Index", "Home");
+
+            if (System.DateTime.Now >= registrationCloseDate)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             // I'm a horrible person and I will fix this later
             if (model.RegisteringVehicle == false)
             {
@@ -56,6 +78,13 @@ namespace MustangAlley.Controllers
         [HttpPost, ValidateRecaptcha]
         public IActionResult Volunteer(RegistrationViewModel model)
         {
+            return RedirectToAction("Index", "Home");
+
+            if (System.DateTime.Now >= registrationCloseDate)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
             //Horrible hack work around post launch to fix validation error
             if (model.RegisteringVehicle == false)
             {

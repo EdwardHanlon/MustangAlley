@@ -8,8 +8,7 @@
     <div class="jumbotron" style="height: auto; min-height: 150px; max-height: 290px;">
         <h2 style="padding-bottom: 5%">Thank you for wanting to make the 2018 Mustang Alley a great event!</h2>
 
-        <h4>For scheduling purposes registration via the website has been stopped. If you want to volunteer please contact the Mustang Alley using the
-            @Html.ActionLink("Contact Us", "ContactUs", "Contact") page.</h4>
+        <h4>The volunteer list is full for 2018, please check back next year!</h4>
     </div>
 </div>*@
 
@@ -85,13 +84,13 @@
                 <span asp-validation-for="ShirtSize" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
+            @*<div class="form-group">
                 <label asp-for="RegisteringVehicle" class="col-md-2 control-label"></label>
                 <div class="col-md-10" style="padding-top: 1%">
                     @Html.RadioButtonFor(m => m.RegisteringVehicle, false, new { @onclick = "hideVehicleRegistration()" })<span>No</span>
                     @Html.RadioButtonFor(m => m.RegisteringVehicle, true, new { @onclick = "showVehicleRegistration()" })<span>Yes</span>
                 </div>
-            </div>
+            </div>*@
         </div>
     </div>
 

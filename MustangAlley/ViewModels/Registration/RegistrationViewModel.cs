@@ -76,7 +76,7 @@ namespace MustangAlley.ViewModels.Registration
 
         #region Vehicle Properties
 
-        [RegularExpression(@"19(6[4-9]|[789]\d)|20(0\d|1[0123456789])", ErrorMessage = "Please enter a valid vehicle year between 1964 and 2019")]
+        [RegularExpression(@"19(6[4-9]|[789]\d)|20(0\d|1[0123456789]|2[01])", ErrorMessage = "Please enter a valid vehicle year between 1964 and 2021")]
         [Display(Name = "Vehicle Year")]
         [DefaultValue(0)]
         public int Year { get; set; }
